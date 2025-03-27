@@ -3659,14 +3659,14 @@ body.is-preload #header:after {
 }
 
 .custom-vid {
-	width: 100%; /* Adjust container size as needed */
-	height: 100%; /* Example height */
+	width: 50%; /* Adjust container size as needed */
+	height: 50%; /* Example height */
 	overflow: hidden;
 }
 
 #myCanvasContainer {
 	width: 90%;
-	max-width: 700px;
+	max-width: 500px;
 	height: auto;
 	position: relative;
 	margin: auto;
