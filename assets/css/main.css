@@ -3666,7 +3666,7 @@ body.is-preload #header:after {
 
 #myCanvasContainer {
 	width: 90%;
-	max-width: 500px;
+	max-width: 600px;
 	height: auto;
 	position: relative;
 	margin: auto;
