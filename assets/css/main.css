@@ -1,6 +1,6 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic");
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 /*
 	Photon by HTML5 UP
 	html5up.net | @ajlkn
@@ -2098,6 +2098,11 @@ article.special {
 	text-align: center;
 }
 
+section {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
 header p {
 	color: #999;
 	margin: 0 0 1.5em 0;
@@ -3175,17 +3180,18 @@ button:disabled,
 	opacity: 1;
 	position: relative;
 	z-index: 1;
+	user-select: none;
 }
 
 #header .inner .actions {
-	-moz-transition: -moz-transform 1.25s ease;
+	-moz-transition: -moz-transform 2.25s ease;
 	-webkit-transition: -webkit-transform 1.25s ease;
 	-ms-transition: -ms-transform 1.25s ease;
-	transition: transform 1.25s ease;
+	transition: transform 3s ease-out;
 	-moz-transition-delay: 1s;
 	-webkit-transition-delay: 1s;
 	-ms-transition-delay: 1s;
-	transition-delay: 1s;
+	transition-delay: 0s;
 	-moz-transform: translateY(0);
 	-webkit-transform: translateY(0);
 	-ms-transform: translateY(0);
@@ -3217,10 +3223,10 @@ body.is-preload #header .inner {
 }
 
 body.is-preload #header .inner .actions {
-	-moz-transform: translateY(30em);
-	-webkit-transform: translateY(30em);
-	-ms-transform: translateY(30em);
-	transform: translateY(30em);
+	-moz-transform: translateY(15em);
+	-webkit-transform: translateY(15em);
+	-ms-transform: translateY(15em);
+	transform: translateY(15em);
 	opacity: 0;
 }
 
@@ -3640,6 +3646,7 @@ body.is-preload #header:after {
 
 	#header {
 		padding: 3em 1em 3em 1em;
+		user-select: none;
 	}
 
 	/* Footer */
@@ -3651,6 +3658,8 @@ body.is-preload #header:after {
 
 #header-img {
 	max-width: 15rem;
+	user-select: none;
+	pointer-events: none;
 }
 @media screen and (max-width: 500px) {
 	#header-img {
@@ -3659,17 +3668,19 @@ body.is-preload #header:after {
 }
 
 .custom-vid {
-	width: 50%; /* Adjust container size as needed */
-	height: 50%; /* Example height */
+	width: 100%; /* Adjust container size as needed */
+	height: 100%; /* Example height */
 	overflow: hidden;
 }
 
 #myCanvasContainer {
-	width: 90%;
-	max-width: 600px;
+	display: flex; /* Enable flexbox */
+	align-items: center; /* Center vertically */
+	justify-content: center; /* Center horizontally */
+	width: 60%;
+	max-width: 700px;
 	height: auto;
 	position: relative;
-	margin: auto;
 	padding: 1rem;
 	margin-bottom: 1rem;
 }
@@ -3677,12 +3688,129 @@ body.is-preload #header:after {
 #myCanvas {
 	width: 100%;
 	height: auto;
-	display: block;
-	margin: auto;
+	margin: 0; /* Remove any default margins */
+	padding: 0; /* Remove any default padding */
+	display: block; /* Ensure it behaves like a block element */
 }
 #two {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
+}
+
+#techused {
+	display: flex;
+	justify-content: center;
+}
+#techlist {
+	width: 30%;
+	text-align: left;
+}
+#techlist > ul {
+	font-size: 3rem;
+	list-style: none;
+	margin: 3rem;
+	padding: 2rem;
+	font-family: "Roboto Mono";
+}
+#techlist > ul > * {
+	font-size: 2rem;
+	margin: 1rem;
+}
+
+@media screen and (max-width: 1140px) {
+	#techlist {
+		padding: 0;
+		width: 20%;
+		text-align: left;
+	}
+
+	#techlist > ul > * {
+		font-size: 1rem;
+		margin: 0;
+	}
+}
+@media screen and (max-width: 900px) {
+	#techused {
+		flex-wrap: wrap;
+	}
+	#myCanvasContainer {
+		width: 100%;
+	}
+	#techlist {
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	#techlist > ul {
+		margin: 0;
+		padding: 0;
+		margin-bottom: 3rem;
+		font-size: 3rem;
+		display: flex; /* Enable Flexbox */
+		flex-wrap: wrap; /* Allow items to wrap to the next row */
+		justify-content: space-between; /* Distribute items evenly */
+		gap: 1rem; /* Add spacing between items */
+	}
+
+	#techlist > ul > li {
+		font-size: 2rem;
+		flex: 35%; /* Each item takes 1/3 of the row */
+		text-align: center; /* Center-align the content */
+	}
+
+}
+
+/* Fade-in Animation */
+
+.softfadeup {
+	opacity: 0.2;
+	filter: blur(10px);
+	transform: translateY(50px);
+	transition: opacity 1s ease, transform 0.5s ease, filter 1s ease;
+}
+.showup {
+	opacity: 1;
+	filter: blur(0);
+	transform: translateY(0);
+}
+.faderight {
+	opacity: 0;
+	filter: blur(5px);
+	transform: translateX(-50%);
+	transition: all 2s;
+}
+.faderight2 {
+	opacity: 0;
+	filter: blur(5px);
+	transform: translateX(-70%);
+	transition: all 3.5s;
+}
+.faderight3 {
+	opacity: 0;
+	filter: blur(5px);
+	transform: translateX(-90%);
+	transition: all 5s;
+}
+.fadeleft {
+	opacity: 0;
+	filter: blur(5px);
+	transform: translateX(+90%);
+	transition: all 2s;
+}
+.showright {
+	opacity: 1;
+	filter: blur(0);
+	transform: translateX(0%);
+}
+
+@media screen and (max-width: 900px) {
+	.faderight2,
+	.faderight3 {
+				transition: all 2s; /* Match .faderight transition */
+	}
 }
